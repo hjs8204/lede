@@ -10,9 +10,9 @@
 name: OpenWrt-lic
 
 on:
-  push:
-    branches: 
-      - master
+  #push:
+    #branches: 
+      #- master
   #     ↑↑↑ 改成你的分支名, 一般是master
   # schedule:
   #   - cron: 0 20 * * *
@@ -138,14 +138,19 @@ jobs:
           #EOF
           # 常用LuCI插件选择:
           cat >> .config <<EOF
-          CONFIG_PACKAGE_luci-app-adbyby-plus=y
-          CONFIG_PACKAGE_luci-app-minidlna=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
+          #CONFIG_PACKAGE_luci-app-adbyby-plus=y
+          #CONFIG_PACKAGE_luci-app-minidlna=y
+          #CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
           #CONFIG_PACKAGE_luci-appluci-app-upnp=y
           #CONFIG_PACKAGE_luci-app-ddns=y
           #CONFIG_PACKAGE_luci-app-dnscrypt-dnsforwarder=y
           CONFIG_PACKAGE_luci-app-flowoffload=y
-          CONFIG_PACKAGE_luci-app-unblockmusic=y
+          CONFIG_PACKAGE_luci-app-unblockneteasemusic-go=y
+          CONFIG_PACKAGE_luci-luci-app-hd-idle=y
+          CONFIG_PACKAGE_luci-app-samba4=y
+          CONFIG_PACKAGE_luci-app-vlmcsd=y
+          CONFIG_PACKAGE_luci-app-qbittorrent=y
+          CONFIG_PACKAGE_luci-app-smartdns=y
           EOF
           # LuCI主题:
           cat >> .config <<EOF
