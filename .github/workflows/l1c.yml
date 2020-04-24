@@ -64,8 +64,7 @@ jobs:
           mkdir openwrt-packages
           cd openwrt-packages
           git clone https://github.com/rufengsuixing/luci-app-adguardhome.git
-          git clone https://github.com/pirately/Passwall.git
-          git clone https://github.com/Lienol/openwrt-package.git
+          git clone https://github.com/Lienol/openwrt-luci.git
 
       - name: Update feeds
         run: |
@@ -155,7 +154,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-qbittorrent=y
           CONFIG_PACKAGE_luci-app-smartdns=y
           CONFIG_PACKAGE_luci-app-adguardhome=y
-          CONFIG_PACKAGE_luci-app-passwall=y
+          CONFIG_PACKAGE_luci-app-vpnbypass=y
         
           EOF
           # LuCI主题:
