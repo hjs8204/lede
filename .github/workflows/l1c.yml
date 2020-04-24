@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: OpenWrt-lic
+name: OpenWrt-CI
 
 on:
   push:
@@ -57,7 +57,7 @@ jobs:
           sudo -E apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get clean
-          
+
       - name: 自定义插件主题。
         run: |
           cd package
@@ -102,7 +102,7 @@ jobs:
           # 
           # 无论你想要对固件进行怎样的定制, 都需要且只需要修改 EOF 回环内的内容.
           # 
-          # 编译优酷L1C固件:
+          # 编译x64固件:
           cat >> .config <<EOF
           CONFIG_TARGET_ramips=y
           CONFIG_TARGET_ramips_mt7620=y
@@ -127,7 +127,7 @@ jobs:
           CONFIG_PACKAGE_kmod-fs-nfs-common=y
           CONFIG_PACKAGE_kmod-fs-nfs-v3=y
           CONFIG_PACKAGE_kmod-fs-nfs-v4=y
-          CONFIG_PACKAGE_kmod-fs-ntfs=y
+          ONFIG_PACKAGE_kmod-fs-ntfs=y
           CONFIG_PACKAGE_kmod-fs-squashfs=y
           EOF
           # USB3.0支持:
@@ -140,12 +140,7 @@ jobs:
           #EOF
           # 常用LuCI插件选择:
           cat >> .config <<EOF
-          #CONFIG_PACKAGE_luci-app-adbyby-plus=y
-          #CONFIG_PACKAGE_luci-app-minidlna=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
-          #CONFIG_PACKAGE_luci-appluci-app-upnp=y
-          #CONFIG_PACKAGE_luci-app-ddns=y
-          #CONFIG_PACKAGE_luci-app-dnscrypt-dnsforwarder=y
           CONFIG_PACKAGE_luci-app-flowoffload=y
           CONFIG_PACKAGE_luci-app-unblockmusic=y
           CONFIG_PACKAGE_luci-luci-app-hd-idle=y
@@ -155,7 +150,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-smartdns=y
           CONFIG_PACKAGE_luci-app-adguardhome=y
           CONFIG_PACKAGE_luci-app-vpnbypass=y
-        
+   
           EOF
           # LuCI主题:
           cat >> .config <<EOF
