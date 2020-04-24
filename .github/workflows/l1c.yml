@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: OpenWrt-CI
+name: OpenWrt-CI 
 
 on:
   push:
@@ -65,6 +65,8 @@ jobs:
           cd openwrt-packages
           git clone https://github.com/rufengsuixing/luci-app-adguardhome.git
           git clone https://github.com/Lienol/openwrt-luci.git
+          git clone https://github.com/pymumu/smartdns.git
+          git clone https://github.com/aarond10/https_dns_proxy.git
 
       - name: Update feeds
         run: |
@@ -127,7 +129,7 @@ jobs:
           CONFIG_PACKAGE_kmod-fs-nfs-common=y
           CONFIG_PACKAGE_kmod-fs-nfs-v3=y
           CONFIG_PACKAGE_kmod-fs-nfs-v4=y
-          ONFIG_PACKAGE_kmod-fs-ntfs=y
+          CONFIG_PACKAGE_kmod-fs-ntfs=y
           CONFIG_PACKAGE_kmod-fs-squashfs=y
           EOF
           # USB3.0支持:
